@@ -6,8 +6,8 @@
 #  Written by David Sean
 #
 
+import os
 import svgwrite as sw
-from svgwrite import px
 
 
 class Badger(object):
@@ -22,6 +22,8 @@ class Badger(object):
         self.result_color = sw.utils.rgb(r=255, b=255, g=255, mode='RGB')
 
         self.dwg = sw.Drawing(self.fname, (170, 20), debug=True)
+        self.init_blank()
+        self.add_logo()
 
     def define(self, type, result):
         """ Define badge fields.
@@ -46,9 +48,13 @@ class Badger(object):
         result_paragraph.add(self.dwg.text(result, (116, 16)))
 
     def add_logo(self):
+        self.dwg.add(sw.image.Image(os.path.dirname(os.path.realpath(__file__)) +
+                                    "/incuvers.svg", insert=(3, 1), size=(50, 20)))
+
         self.dwg.add(sw.image.Image("incuvers.svg", insert=(3, 1), size=(50, 20)))
 
     def init_blank(self):
+        px = sw.px
 
         self.dwg.add(sw.shapes.Rect(insert=(0, 0),
                                     size=(110*px, 20*px), rx=4*px, ry=4*px, fill=self.base_color))

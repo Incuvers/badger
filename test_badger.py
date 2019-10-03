@@ -26,7 +26,6 @@ class TestApp(unittest.TestCase):
     def test_string(self):
         self.badge.init_blank()
         self.badge.define("0123456789", "0123456789")
-        self.badge.add_logo()
         self.badge.save()
 
 
