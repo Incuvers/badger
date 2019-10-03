@@ -51,8 +51,6 @@ class Badger(object):
         self.dwg.add(sw.image.Image(os.path.dirname(os.path.realpath(__file__)) +
                                     "/incuvers.svg", insert=(3, 1), size=(50, 20)))
 
-        self.dwg.add(sw.image.Image("incuvers.svg", insert=(3, 1), size=(50, 20)))
-
     def init_blank(self):
         px = sw.px
 
